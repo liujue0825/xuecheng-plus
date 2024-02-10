@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * 课程计划
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 @Data
 @TableName("teachplan")

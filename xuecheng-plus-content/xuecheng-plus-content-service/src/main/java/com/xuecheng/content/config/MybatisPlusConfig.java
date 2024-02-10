@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * MybatisPlus配置
+ * @author liujue
  */
 @Configuration
 @MapperScan("com.xuecheng.content.mapper")

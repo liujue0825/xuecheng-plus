@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author liujue
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

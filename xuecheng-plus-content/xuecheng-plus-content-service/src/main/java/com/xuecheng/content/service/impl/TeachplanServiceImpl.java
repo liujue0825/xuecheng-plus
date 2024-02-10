@@ -14,15 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
 @Service
 public class TeachplanServiceImpl implements TeachplanService {
-    @Autowired
+    @Resource
     private TeachplanMapper teachplanMapper;
-    @Autowired
+    @Resource
     private TeachplanMediaMapper teachplanMediaMapper;
 
     @Override
@@ -43,7 +44,9 @@ public class TeachplanServiceImpl implements TeachplanService {
             plan.setOrderby(getTeachplanCount(plan.getCourseId(), plan.getParentid()) + 1);
             // 如果新增失败，返回0，抛异常
             int flag = teachplanMapper.insert(plan);
-            if (flag <= 0) XueChengPlusException.cast("新增失败");
+            if (flag <= 0) {
+                XueChengPlusException.cast("新增失败");
+            }
         } else {
             // 课程计划id不为null，查询课程，拷贝属性，设置更新时间，执行更新
             Teachplan plan = teachplanMapper.selectById(teachplanId);
@@ -51,14 +54,17 @@ public class TeachplanServiceImpl implements TeachplanService {
             plan.setChangeDate(LocalDateTime.now());
             // 如果修改失败，返回0，抛异常
             int flag = teachplanMapper.updateById(plan);
-            if (flag <= 0) XueChengPlusException.cast("修改失败");
+            if (flag <= 0) {
+                XueChengPlusException.cast("修改失败");
+            }
         }
     }
     @Transactional
     @Override
     public void deleteTeachplan(Long teachplanId) {
-        if (teachplanId == null)
+        if (teachplanId == null) {
             XueChengPlusException.cast("课程计划id为空");
+        }
         Teachplan teachplan = teachplanMapper.selectById(teachplanId);
         // 判断当前课程计划是章还是节
         Integer grade = teachplan.getGrade();
@@ -71,8 +77,9 @@ public class TeachplanServiceImpl implements TeachplanService {
             // 获取一下查询的条目数
             Integer count = teachplanMapper.selectCount(queryWrapper);
             // 如果当前章下还有小节，则抛异常
-            if (count > 0)
+            if (count > 0) {
                 XueChengPlusException.cast("课程计划信息还有子级信息，无法操作");
+            }
             teachplanMapper.deleteById(teachplanId);
         } else {
             // 课程计划为节，删除改小节课程计划
@@ -152,9 +159,9 @@ public class TeachplanServiceImpl implements TeachplanService {
      * @param tmp teachplan2
      */
     private void exchangeOrderby(Teachplan teachplan, Teachplan tmp) {
-        if (tmp == null)
+        if (tmp == null) {
             XueChengPlusException.cast("已经到头啦，不能再移啦");
-        else {
+        } else {
             // 交换orderby，更新
             Integer orderby = teachplan.getOrderby();
             Integer tmpOrderby = tmp.getOrderby();

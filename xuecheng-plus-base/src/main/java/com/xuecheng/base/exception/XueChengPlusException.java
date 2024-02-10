@@ -4,6 +4,7 @@ package com.xuecheng.base.exception;
 
 
 /**
+ * @author liujue
  * @description 学成在线项目异常类
  */
 public class XueChengPlusException extends RuntimeException {

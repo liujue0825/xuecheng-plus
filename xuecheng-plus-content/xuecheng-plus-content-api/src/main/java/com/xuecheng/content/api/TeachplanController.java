@@ -10,13 +10,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author liujue
+ */
 @Slf4j
 @RestController
 @Api(value = "课程计划编辑接口", tags = "课程计划编辑接口")
 public class TeachplanController {
-    @Autowired
+    @Resource
     private TeachplanService teachplanService;
 
     @ApiOperation("查询课程计划树形结构")

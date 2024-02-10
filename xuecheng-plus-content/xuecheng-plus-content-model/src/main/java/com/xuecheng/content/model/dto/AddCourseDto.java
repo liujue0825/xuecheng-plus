@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 /**
+ * @author liujue
  * @version 1.0
  * @description 添加课程dto
  */

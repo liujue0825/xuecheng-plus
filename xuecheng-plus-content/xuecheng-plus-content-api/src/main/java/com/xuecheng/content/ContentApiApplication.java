@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * @author liujue
+ */
 @EnableSwagger2Doc
 @SpringBootApplication(scanBasePackages = "com.xuecheng")
 public class ContentApiApplication {

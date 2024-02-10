@@ -18,7 +18,7 @@ import java.util.List;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(XueChengPlusException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 该异常枚举错误码为500，
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 该异常枚举错误码为 500
     public RestErrorResponse customException(XueChengPlusException exception) {
         log.error("系统异常：{}", exception.getErrMessage());
         return new RestErrorResponse(exception.getErrMessage());

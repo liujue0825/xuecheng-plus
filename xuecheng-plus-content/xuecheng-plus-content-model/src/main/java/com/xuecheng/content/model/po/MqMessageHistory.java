@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * 
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 @Data
 @TableName("mq_message_history")

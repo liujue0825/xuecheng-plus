@@ -21,6 +21,9 @@ import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * @author liujue
+ */
 @Service
 public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     @Resource
@@ -90,11 +93,18 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         return getCourseBaseInfo(courseId);
     }
 
+    /**
+     * 插入课程营销表
+     *
+     * @param courseMarket 课程营销信息
+     * @return 影响行数
+     */
     private int saveCourseMarket(CourseMarket courseMarket) {
         String charge = courseMarket.getCharge();
-        if (StringUtils.isBlank(charge))
+        if (StringUtils.isBlank(charge)) {
             XueChengPlusException.cast("请设置收费规则");
-        if (charge.equals("201001")) {
+        }
+        if ("201001".equals(charge)) {
             Float price = courseMarket.getPrice();
             if (price == null || price <= 0) {
                 XueChengPlusException.cast("课程设置了收费，价格不能为空，且必须大于0");
@@ -110,15 +120,17 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         CourseBaseInfoDto courseBaseInfoDto = new CourseBaseInfoDto();
         // 1. 根据课程id查询课程基本信息
         CourseBase courseBase = courseBaseMapper.selectById(courseId);
-        if (courseBase == null)
+        if (courseBase == null) {
             return null;
+        }
         // 1.1 拷贝属性
         BeanUtils.copyProperties(courseBase, courseBaseInfoDto);
         // 2. 根据课程id查询课程营销信息
         CourseMarket courseMarket = courseMarketMapper.selectById(courseId);
         // 2.1 拷贝属性
-        if (courseMarket != null)
+        if (courseMarket != null) {
             BeanUtils.copyProperties(courseMarket, courseBaseInfoDto);
+        }
         // 3. 查询课程分类名称，并设置属性
         // 3.1 根据小分类id查询课程分类对象
         CourseCategory courseCategoryBySt = courseCategoryMapper.selectById(courseBase.getSt());
@@ -161,10 +173,11 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
 
     @Transactional
     @Override
-    public void delectCourse(Long companyId, Long courseId) {
+    public void deleteCourse(Long companyId, Long courseId) {
         CourseBase courseBase = courseBaseMapper.selectById(courseId);
-        if (!companyId.equals(courseBase.getCompanyId()))
+        if (!companyId.equals(courseBase.getCompanyId())) {
             XueChengPlusException.cast("只允许删除本机构的课程");
+        }
         // 删除课程教师信息
         LambdaQueryWrapper<CourseTeacher> teacherLambdaQueryWrapper = new LambdaQueryWrapper<>();
         teacherLambdaQueryWrapper.eq(CourseTeacher::getCourseId, courseId);

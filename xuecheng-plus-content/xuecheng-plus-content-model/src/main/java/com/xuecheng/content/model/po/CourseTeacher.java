@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * 课程-教师关系表
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 @Data
 @TableName("course_teacher")

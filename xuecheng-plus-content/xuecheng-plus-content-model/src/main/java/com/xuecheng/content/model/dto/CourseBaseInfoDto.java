@@ -5,13 +5,12 @@ import lombok.Data;
 
 
 /**
+ * @author liujue
  * @version 1.0
  * @description 课程基本信息dto
  */
 @Data
 public class CourseBaseInfoDto extends CourseBase {
-
-
     /**
      * 收费规则，对应数据字典
      */

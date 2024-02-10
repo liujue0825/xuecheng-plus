@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+/**
+ * @author liujue
+ */
 @Slf4j
 @RestController
 @Api(value = "课程分类相关接口", tags = "课程分类相关接口")

@@ -2,6 +2,9 @@ package com.xuecheng.content.model.dto;
 
 import lombok.Data;
 
+/**
+ * @author liujue
+ */
 @Data
 public class SaveTeachplanDto {
     /**

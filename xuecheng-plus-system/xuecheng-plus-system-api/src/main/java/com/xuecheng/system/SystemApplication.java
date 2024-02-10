@@ -9,8 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * <p>
  *     系统管理启动类
  * </p>
- *
- * @Description:
+ * @author liujue
  */
 @EnableScheduling
 @EnableSwagger2Doc

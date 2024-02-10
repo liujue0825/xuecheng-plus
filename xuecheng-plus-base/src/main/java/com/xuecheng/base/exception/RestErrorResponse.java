@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * 响应用户的统一类型
+ * @author liujue
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

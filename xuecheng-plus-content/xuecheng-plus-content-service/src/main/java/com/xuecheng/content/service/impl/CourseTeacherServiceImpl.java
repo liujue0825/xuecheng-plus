@@ -11,13 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * @author liujue
+ */
 @Slf4j
 @Service
 public class CourseTeacherServiceImpl implements CourseTeacherService {
-    @Autowired
+    @Resource
     private CourseTeacherMapper courseTeacherMapper;
 
     @Override
@@ -25,32 +29,33 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
         // SELECT * FROM course_teacher WHERE course_id = 117
         LambdaQueryWrapper<CourseTeacher> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(CourseTeacher::getCourseId, courseId);
-        List<CourseTeacher> courseTeachers = courseTeacherMapper.selectList(queryWrapper);
-        return courseTeachers;
+        return courseTeacherMapper.selectList(queryWrapper);
     }
 
     @Transactional
     @Override
     public CourseTeacher saveCourseTeacher(CourseTeacher courseTeacher) {
         Long id = courseTeacher.getId();
+        CourseTeacher teacher;
         if (id == null) {
             // id为null，新增教师
-            CourseTeacher teacher = new CourseTeacher();
+            teacher = new CourseTeacher();
             BeanUtils.copyProperties(courseTeacher, teacher);
             teacher.setCreateDate(LocalDateTime.now());
             int flag = courseTeacherMapper.insert(teacher);
-            if (flag <= 0)
+            if (flag <= 0) {
                 XueChengPlusException.cast("新增失败");
-            return getCourseTeacher(teacher);
+            }
         } else {
             // id不为null，修改教师
-            CourseTeacher teacher = courseTeacherMapper.selectById(id);
+            teacher = courseTeacherMapper.selectById(id);
             BeanUtils.copyProperties(courseTeacher, teacher);
             int flag = courseTeacherMapper.updateById(teacher);
-            if (flag <= 0)
+            if (flag <= 0) {
                 XueChengPlusException.cast("修改失败");
-            return getCourseTeacher(teacher);
+            }
         }
+        return courseTeacherMapper.selectById(teacher.getId());
     }
 
     @Override
@@ -58,9 +63,10 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
         LambdaQueryWrapper<CourseTeacher> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(CourseTeacher::getId, teacherId);
         queryWrapper.eq(CourseTeacher::getCourseId, courseId);
-        int flag = courseTeacherMapper.delete(queryWrapper);
-        if (flag < 0)
+        int row = courseTeacherMapper.delete(queryWrapper);
+        if (row < 0) {
             XueChengPlusException.cast("删除失败");
+        }
     }
 
     public CourseTeacher getCourseTeacher(CourseTeacher courseTeacher) {

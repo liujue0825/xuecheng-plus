@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author liujue
+ */
 @Configuration
 public class LocalDateTimeConfig {
 
@@ -33,7 +36,9 @@ public class LocalDateTimeConfig {
     }
 
 
-    // 配置
+    /**
+     * 配置序列化器
+     */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return builder -> {

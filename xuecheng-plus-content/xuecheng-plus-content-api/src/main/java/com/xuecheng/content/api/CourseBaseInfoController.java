@@ -26,8 +26,7 @@ public class CourseBaseInfoController {
     @ApiOperation("课程查询接口")
     @PostMapping("/course/list")
     public PageResult<CourseBase> list(PageParams pageParams, @RequestBody QueryCourseParamDto queryCourseParams) {
-        PageResult<CourseBase> result = courseBaseInfoService.queryCourseBaseList(pageParams, queryCourseParams);
-        return result;
+        return courseBaseInfoService.queryCourseBaseList(pageParams, queryCourseParams);
     }
 
     @ApiOperation("新增课程基础信息接口")
@@ -54,6 +53,6 @@ public class CourseBaseInfoController {
     @DeleteMapping("/course/{courseId}")
     public void deleteCourse(@PathVariable Long courseId) {
         Long companyId = 1232141425L;
-        courseBaseInfoService.delectCourse(companyId,courseId);
+        courseBaseInfoService.deleteCourse(companyId,courseId);
     }
 }

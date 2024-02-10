@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+/**
+ * @author liujue
+ */
 @Data
 @ApiModel(value = "EditCourseDto", description = "修改课程基本信息")
 public class EditCourseDto extends AddCourseDto{

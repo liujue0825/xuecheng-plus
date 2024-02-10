@@ -5,6 +5,9 @@ import com.xuecheng.content.model.po.Teachplan;
 
 import java.util.List;
 
+/**
+ * @author liujue
+ */
 public interface TeachplanService {
     List<TeachplanDto> findTeachplanTree(Long courseId);
 
