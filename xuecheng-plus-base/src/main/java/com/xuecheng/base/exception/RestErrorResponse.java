@@ -14,6 +14,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RestErrorResponse implements Serializable {
+    /**
+     * 异常信息
+     */
     private String errMessage;
-
 }

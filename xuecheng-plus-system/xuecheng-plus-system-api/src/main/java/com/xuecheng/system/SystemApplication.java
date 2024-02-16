@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * </p>
  * @author liujue
  */
-@EnableScheduling
+// @EnableScheduling
 @EnableSwagger2Doc
 @SpringBootApplication
 public class SystemApplication {

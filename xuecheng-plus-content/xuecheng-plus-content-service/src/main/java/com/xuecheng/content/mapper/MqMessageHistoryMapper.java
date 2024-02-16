@@ -8,7 +8,7 @@ import com.xuecheng.content.model.po.MqMessageHistory;
  *  Mapper 接口
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 public interface MqMessageHistoryMapper extends BaseMapper<MqMessageHistory> {
 

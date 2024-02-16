@@ -8,7 +8,7 @@ import com.xuecheng.content.model.po.CourseMarket;
  * 课程营销信息 Mapper 接口
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 public interface CourseMarketMapper extends BaseMapper<CourseMarket> {
 

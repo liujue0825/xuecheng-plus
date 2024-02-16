@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 
+/**
+ * @author liujue
+ */
 @RestController
 @Api(value = "课程信息编辑接口", tags = "课程信息编辑接口")
 public class CourseBaseInfoController {

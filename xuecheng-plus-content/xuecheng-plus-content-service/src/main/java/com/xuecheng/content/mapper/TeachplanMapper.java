@@ -11,7 +11,7 @@ import java.util.List;
  * 课程计划 Mapper 接口
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 public interface TeachplanMapper extends BaseMapper<Teachplan> {
     List<TeachplanDto> selectTreeNodes(Long courseId);

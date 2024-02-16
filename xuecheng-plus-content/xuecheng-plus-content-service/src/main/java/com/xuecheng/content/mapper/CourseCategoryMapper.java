@@ -11,7 +11,7 @@ import java.util.List;
  * 课程分类 Mapper 接口
  * </p>
  *
- * @author cyborg2077
+ * @author liujue
  */
 public interface CourseCategoryMapper extends BaseMapper<CourseCategory> {
     List<CourseCategoryTreeDto> selectTreeNodes(String rootId);

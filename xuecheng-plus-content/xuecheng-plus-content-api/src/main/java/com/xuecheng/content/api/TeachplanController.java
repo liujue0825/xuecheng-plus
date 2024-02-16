@@ -1,6 +1,7 @@
 package com.xuecheng.content.api;
 
 import com.xuecheng.base.exception.XueChengPlusException;
+import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
 import com.xuecheng.content.model.po.Teachplan;
 import com.xuecheng.content.service.TeachplanService;
@@ -45,5 +46,21 @@ public class TeachplanController {
     @PostMapping("/teachplan/{moveType}/{teachplanId}")
     public void orderByTeachplan(@PathVariable String moveType, @PathVariable Long teachplanId) {
         teachplanService.orderByTeachplan(moveType, teachplanId);
+    }
+
+    /**
+     * 课程计划与媒资信息绑定接口
+     */
+    @PostMapping("/teachplan/association/media")
+    public void associationMedia(@RequestBody BindTeachplanMediaDto dto) {
+        teachplanService.associationMedia(dto);
+    }
+
+    /**
+     * 课程计划与媒资信息解除绑定接口
+     */
+    @DeleteMapping("/teachplan/association/media/{teachplanId}/{mediaId}")
+    public void unassociationMedia(@PathVariable Long teachplanId, @PathVariable Long mediaId) {
+        teachplanService.unassociationMedia(teachplanId, mediaId);
     }
 }

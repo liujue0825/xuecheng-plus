@@ -18,8 +18,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j
-@SpringBootTest(classes = XuechengPlusContentServiceApplication.class)
-class XuechengPlusContentServiceApplicationTests {
+@SpringBootTest
+public class XuechengPlusContentServiceApplicationTests {
     @Resource
     CourseBaseMapper courseBaseMapper;
 
@@ -45,5 +45,10 @@ class XuechengPlusContentServiceApplicationTests {
     void contextCourseCategoryTest() {
         List<CourseCategoryTreeDto> courseCategoryTreeDtos = courseCategoryService.queryTreeNodes("1");
         System.out.println(courseCategoryTreeDtos);
+    }
+
+    @Test
+    public void test() {
+        System.out.println("hello world");
     }
 }
