@@ -1,9 +1,7 @@
 package com.xuecheng.media.service.jobhandler;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.xuecheng.base.exception.XueChengPlusException;
 import com.xuecheng.base.utils.Mp4VideoUtil;
-import com.xuecheng.media.mapper.MediaProcessMapper;
 import com.xuecheng.media.model.po.MediaProcess;
 import com.xuecheng.media.service.MediaFileProcessService;
 import com.xuecheng.media.service.MediaFileService;
@@ -143,10 +141,5 @@ public class VideoTask {
      */
     private String getFilePathByMd5(String fileMd5, String extension) {
         return fileMd5.charAt(0) + "/" + fileMd5.charAt(1) + "/" + fileMd5 + "/" + fileMd5 + extension;
-    }
-
-    public static void main(String[] args) {
-        int processors = Runtime.getRuntime().availableProcessors();
-        System.out.println("CPU cores: " + processors);
     }
 }

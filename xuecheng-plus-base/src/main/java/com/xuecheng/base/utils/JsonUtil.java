@@ -15,12 +15,12 @@ import java.util.Map;
 
 public class JsonUtil {
     
-    public static String objectTojson(Object object){
+    public static String objectToJson(Object object){
         return JSON.toJSONString(object,SerializerFeature.WriteDateUseDateFormat);
     }
     
 
-    public static String listTojson(List list){
+    public static String listToJson(List list){
         return JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat);
     }
     /**

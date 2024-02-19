@@ -13,9 +13,8 @@ spring:
           - data-id: feign-${spring.profiles.active}.yaml
             group: xuecheng-plus-common
             refresh: true
-  #profiles默认为dev
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: xuecheng-plus-common
+            refresh: true
   profiles:
     active: dev
-
-logging:
-  config: classpath:log4j2-dev.xml
