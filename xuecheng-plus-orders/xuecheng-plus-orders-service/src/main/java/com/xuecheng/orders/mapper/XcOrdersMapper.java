@@ -8,7 +8,7 @@ import com.xuecheng.orders.model.po.XcOrders;
  *  Mapper 接口
  * </p>
  *
- * @author itcast
+ * @author liujue
  */
 public interface XcOrdersMapper extends BaseMapper<XcOrders> {
 

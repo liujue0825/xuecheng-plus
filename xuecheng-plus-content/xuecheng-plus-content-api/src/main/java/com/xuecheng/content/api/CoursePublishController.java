@@ -1,6 +1,7 @@
 package com.xuecheng.content.api;
 
 import com.xuecheng.content.model.dto.CoursePreviewDto;
+import com.xuecheng.content.model.po.CoursePublish;
 import com.xuecheng.content.service.CoursePublishService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,5 +49,13 @@ public class CoursePublishController {
     public void coursePublish(@PathVariable Long courseId) {
         Long companyId = 1232141425L;
         coursePublishService.publishCourse(companyId, courseId);
+    }
+
+    /**
+     * 查询课程发布信息
+     */
+    @GetMapping("/r/coursepublish/{courseId}")
+    public CoursePublish getCoursePublish(@PathVariable("courseId") Long courseId) {
+        return coursePublishService.getCoursePublish(courseId);
     }
 }

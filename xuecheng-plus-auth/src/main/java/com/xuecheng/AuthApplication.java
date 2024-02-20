@@ -19,10 +19,15 @@ import java.util.List;
  * @author liujue
  */
 @SpringBootApplication
+@EnableFeignClients(basePackages = "com.xuecheng.*.feignclient")
 public class AuthApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthApplication.class, args);
     }
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate(new OkHttp3ClientHttpRequestFactory());
+    }
 }

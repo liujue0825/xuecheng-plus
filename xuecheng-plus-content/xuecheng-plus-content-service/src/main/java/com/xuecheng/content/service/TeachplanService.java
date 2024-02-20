@@ -12,6 +12,13 @@ import java.util.List;
 public interface TeachplanService {
     List<TeachplanDto> findTeachplanTree(Long courseId);
 
+    /**
+     * 根据教学计划 id 获取教学计划
+     * @param teachplanId 教学计划 id
+     * @return 教学计划
+     */
+    Teachplan getTeachPlanById(Long teachplanId);
+
     void saveTeachplan(Teachplan teachplan);
 
     void deleteTeachplan(Long teachplanId);
@@ -32,4 +39,7 @@ public interface TeachplanService {
      * @param mediaId     媒资信息id
      */
     void unassociationMedia(Long teachplanId, Long mediaId);
+
+
+
 }

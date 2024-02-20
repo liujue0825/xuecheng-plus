@@ -17,32 +17,29 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @author Mr.M
- * @version 1.0
- * @description 图片验证码生成器
- * @date 2022/9/29 16:16
+ * 图片验证码生成器
+ *
+ * @author liujue
  */
 @Service("PicCheckCodeService")
 public class PicCheckCodeServiceImpl extends AbstractCheckCodeService implements CheckCodeService {
-
-
     @Autowired
-    private DefaultKaptcha kaptcha;
+    private DefaultKaptcha defaultKaptcha;
 
-    @Resource(name="NumberLetterCheckCodeGenerator")
+    @Resource(name = "NumberLetterCheckCodeGenerator")
     @Override
     public void setCheckCodeGenerator(CheckCodeGenerator checkCodeGenerator) {
         this.checkCodeGenerator = checkCodeGenerator;
     }
 
-    @Resource(name="UUIDKeyGenerator")
+    @Resource(name = "UUIDKeyGenerator")
     @Override
     public void setKeyGenerator(KeyGenerator keyGenerator) {
         this.keyGenerator = keyGenerator;
     }
 
 
-    @Resource(name="RedisCheckCodeStore")
+    @Resource(name = "RedisCheckCodeStore")
     @Override
     public void setCheckCodeStore(CheckCodeStore checkCodeStore) {
         this.checkCodeStore = checkCodeStore;
@@ -59,13 +56,12 @@ public class PicCheckCodeServiceImpl extends AbstractCheckCodeService implements
         checkCodeResultDto.setAliasing(pic);
         checkCodeResultDto.setKey(key);
         return checkCodeResultDto;
-
     }
 
     private String createPic(String code) {
         // 生成图片验证码
         ByteArrayOutputStream outputStream = null;
-        BufferedImage image = kaptcha.createImage(code);
+        BufferedImage image = defaultKaptcha.createImage(code);
 
         outputStream = new ByteArrayOutputStream();
         String imgBase64Encoder = null;

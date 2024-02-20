@@ -236,6 +236,17 @@ public class CoursePublishServiceImpl implements CoursePublishService {
     }
 
     /**
+     * 查询课程发布信息
+     *
+     * @param courseId 课程 id
+     * @return 课程发布信息
+     */
+    @Override
+    public CoursePublish getCoursePublish(Long courseId) {
+        return coursePublishMapper.selectById(courseId);
+    }
+
+    /**
      * 保存课程发布信息
      *
      * @param coursePublishPre 课程预发布信息

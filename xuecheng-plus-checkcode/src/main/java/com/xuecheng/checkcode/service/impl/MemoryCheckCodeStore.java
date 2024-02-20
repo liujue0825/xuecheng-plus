@@ -8,19 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 本地缓存验证码
+ *
  * @author Mr.M
- * @version 1.0
- * @description 使用本地内存存储验证码，测试用
- * @date 2022/9/29 18:36
  */
 @Component("MemoryCheckCodeStore")
 public class MemoryCheckCodeStore implements CheckCodeService.CheckCodeStore {
-
-    Map<String,String> map = new HashMap<String,String>();
+    Map<String, String> map = new HashMap<>();
 
     @Override
     public void set(String key, String value, Integer expire) {
-        map.put(key,value);
+        map.put(key, value);
     }
 
     @Override

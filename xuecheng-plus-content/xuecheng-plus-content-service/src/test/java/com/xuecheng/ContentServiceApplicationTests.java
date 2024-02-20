@@ -53,11 +53,6 @@ public class ContentServiceApplicationTests {
     }
 
     @Test
-    void contextQueryCourseTest() {
-        PageResult<CourseBase> result = courseBaseInfoService.queryCourseBaseList(new PageParams(1L, 10L), new QueryCourseParamDto());
-        log.info("查询到数据：{}", result);
-    }
-    @Test
     void contextCourseCategoryTest() {
         List<CourseCategoryTreeDto> courseCategoryTreeDtos = courseCategoryService.queryTreeNodes("1");
         System.out.println(courseCategoryTreeDtos);

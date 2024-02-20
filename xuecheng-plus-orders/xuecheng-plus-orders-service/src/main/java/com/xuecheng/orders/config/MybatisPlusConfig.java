@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * <P>
  * 		Mybatis-Plus 配置
  * </p>
+ * @author liujue
  */
 @Configuration
 @MapperScan("com.xuecheng.orders.mapper")

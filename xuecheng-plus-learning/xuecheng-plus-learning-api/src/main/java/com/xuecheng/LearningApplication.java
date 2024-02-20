@@ -4,12 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * @author liujue
+ */
 @EnableFeignClients(basePackages={"com.xuecheng.*.feignclient"})
 @SpringBootApplication
-public class LearningApiApplication {
+public class LearningApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LearningApiApplication.class, args);
+        SpringApplication.run(LearningApplication.class, args);
     }
 
 }

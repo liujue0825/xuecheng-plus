@@ -20,9 +20,4 @@ public class NacosTest {
     @Resource
     CourseBaseInfoService courseBaseInfoService;
 
-    @Test
-    void contextQueryCourseTest() {
-        PageResult<CourseBase> result = courseBaseInfoService.queryCourseBaseList(new PageParams(1L, 10L), new QueryCourseParamDto());
-        log.info("查询到数据：{}", result);
-    }
 }

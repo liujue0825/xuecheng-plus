@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author liujue
  */
 @EnableSwagger2Doc
-@EnableFeignClients(basePackages={"com.xuecheng.content.feignclient"})
+@EnableFeignClients(basePackages={"com.xuecheng.*.feignclient"})
 @SpringBootApplication(scanBasePackages = "com.xuecheng")
 public class ContentApplication {
 

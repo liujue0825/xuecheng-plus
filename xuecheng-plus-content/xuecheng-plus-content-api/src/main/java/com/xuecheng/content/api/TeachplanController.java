@@ -22,10 +22,20 @@ public class TeachplanController {
     @Resource
     private TeachplanService teachplanService;
 
-    @ApiOperation("查询课程计划树形结构")
+    /**
+     * 查询课程计划树形结构
+     */
     @GetMapping("/teachplan/{courseId}/tree-nodes")
     public List<TeachplanDto> getTreeNodes(@PathVariable Long courseId) {
         return teachplanService.findTeachplanTree(courseId);
+    }
+
+    /**
+     * 获取教学计划信息
+     */
+    @PostMapping("/content/teachplan/{teachplanId}")
+    public Teachplan getTeachplan(@PathVariable Long teachplanId) {
+        return teachplanService.getTeachPlanById(teachplanId);
     }
 
     @ApiOperation("课程计划创建或修改")

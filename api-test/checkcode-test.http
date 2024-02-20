@@ -1,0 +1,5 @@
+### 获取图片验证码
+POST {{checkcode_host}}/checkcode/pic
+
+### 校验图片验证码
+POST {{checkcode_host}}/checkcode/verify?checkcode:42ce8db27a7740b2a74a18cf65d5344d?code=PL5B

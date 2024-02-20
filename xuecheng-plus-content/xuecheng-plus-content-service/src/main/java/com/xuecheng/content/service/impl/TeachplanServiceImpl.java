@@ -32,6 +32,17 @@ public class TeachplanServiceImpl implements TeachplanService {
         return teachplanMapper.selectTreeNodes(courseId);
     }
 
+    /**
+     * 根据教学计划 id 获取教学计划
+     *
+     * @param teachplanId 教学计划 id
+     * @return 教学计划
+     */
+    @Override
+    public Teachplan getTeachPlanById(Long teachplanId) {
+        return teachplanMapper.selectById(teachplanId);
+    }
+
     @Transactional
     @Override
     public void saveTeachplan(Teachplan teachplan) {

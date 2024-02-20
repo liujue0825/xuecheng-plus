@@ -1,4 +1,4 @@
-package com.xuecheng.orders.config;
+package com.xuecheng.learning.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +15,11 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
  **/
 @Configuration
 @EnableResourceServer
-@EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true)
-public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 
-    //资源服务标识
+    // 资源服务标识
     public static final String RESOURCE_ID = "xuecheng-plus";
 
     @Autowired
@@ -27,7 +27,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId(RESOURCE_ID)//资源 id
+        resources.resourceId(RESOURCE_ID)// 资源 id
                 .tokenStore(tokenStore)
                 .stateless(true);
     }
@@ -36,10 +36,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/r/**","/course/**").authenticated()//所有/r/**的请求必须认证通过
-                .anyRequest().permitAll()
-        ;
+               // .antMatchers("/r/**","/course/**").authenticated()//所有/r/**的请求必须认证通过
+                .anyRequest().permitAll();
     }
-
-
 }

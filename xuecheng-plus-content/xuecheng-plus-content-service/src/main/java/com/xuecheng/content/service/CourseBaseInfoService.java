@@ -18,11 +18,12 @@ public interface CourseBaseInfoService {
     /**
      * 课程分页查询
      *
+     * @param companyId         教学机构 id
      * @param pageParams        分页参数
      * @param queryCourseParams 查询条件
      * @return 分页查询结果
      */
-    PageResult<CourseBase> queryCourseBaseList(PageParams pageParams, QueryCourseParamDto queryCourseParams);
+    PageResult<CourseBase> queryCourseBaseList(Long companyId, PageParams pageParams, QueryCourseParamDto queryCourseParams);
 
     /**
      * 新增课程基本信息

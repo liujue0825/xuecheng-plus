@@ -8,7 +8,7 @@ import com.xuecheng.orders.model.po.XcPayRecord;
  *  Mapper 接口
  * </p>
  *
- * @author itcast
+ * @author liujue
  */
 public interface XcPayRecordMapper extends BaseMapper<XcPayRecord> {
 
