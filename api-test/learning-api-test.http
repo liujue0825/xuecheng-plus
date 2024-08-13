@@ -1,0 +1,3 @@
+#### 查询课程发布信息
+GET {{content_host}}/content/r/coursepublish/160
+Content-Type: application/json

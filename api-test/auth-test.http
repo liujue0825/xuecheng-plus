@@ -1,0 +1,25 @@
+### 授权码模式
+### 1.获取授权码: http://localhost:63070/auth/oauth/authorize?client_id=XcWebApp&response_type=code&scope=all&redirect_uri=http://localhost/
+### 2. 测试
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=authorization_code&code=nZF7Dl&redirect_uri=http://localhost/
+
+
+# 密码模式
+
+### 密码正确
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=password&username=Kyle&password=123456
+### 密码错误
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=password&username=Kyle&password=111111
+
+
+### 校验 JWT 令牌
+POST {{auth_host}}/auth/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJLeWxlIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTcwODMzODYwOCwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiZGViMmJiNmEtODA1Zi00Mzg2LWI3NTctYWM0NDc3ZDFlMDEyIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.W7HA0wEb--K8IThEXUzlx1sAS_rkcnahDvo45lRw08s
+
+
+### 测试网关
+GET {{gateway_host}}/content/course/40
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJLeWxlIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTcwODM0MDM4NCwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiODdlZjRiZTgtYmFkZi00NDEzLWJiZjktYzRhZTk0NWZlZTFmIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.0VGv71x4Mu8SEKvkY7HeaM_kbnneNM1F48brA9_dJ8w
+
+
+### 1
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=password&username=Kyle&password=123456
