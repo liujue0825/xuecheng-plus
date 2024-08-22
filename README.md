@@ -19,16 +19,16 @@
 ## 核心业务
 
 ### 课程内容管理模块
-
+![课程发布业务流程](https://liujue.oss-cn-hangzhou.aliyuncs.com/img/202408221532685.png)
 
 
 ### 媒体资源管理模块
-
+![大文件上传业务流程](https://liujue.oss-cn-hangzhou.aliyuncs.com/img/202408221532370.png)
 
 
 
 ### 课程订单管理模块
-
+![订单支付业务流程](https://liujue.oss-cn-hangzhou.aliyuncs.com/img/202408221532408.png)
 
 
 ## 环境配置
